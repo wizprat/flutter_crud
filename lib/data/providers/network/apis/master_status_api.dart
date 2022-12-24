@@ -22,7 +22,7 @@ class MasterStatusAPI implements APIRequestRepresentable {
   @override
   get body => null;
 
-  @override
+  @override 
   String get endpoint => APIEndpoint.masterStatus;
 
   @override
