@@ -71,6 +71,7 @@ class FetchDataException extends AppException {
           details: details,
         );
 }
+        
 
 class BadRequestException extends AppException {
   BadRequestException(String? details)

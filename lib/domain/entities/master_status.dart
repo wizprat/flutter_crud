@@ -2,10 +2,12 @@ class MasterStatus {
   MasterStatus({
     this.id,
     this.name,
-    this.description,
+    this.price, 
+    this.qty,
   });
 
   int? id;
   String? name;
-  String? description;
+  int? price;
+  int? qty;
 }

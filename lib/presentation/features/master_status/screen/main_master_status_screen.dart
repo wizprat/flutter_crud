@@ -15,7 +15,11 @@ class MainMasterStatusScreen extends GetView<MasterStatusController> {
         (data) => ListView.separated(
             itemBuilder: (context, index) => ListTile(
                   title: Text('${data?[index].name}'),
-                  subtitle: Text('${data?[index].description}'),
+                  subtitle: Text('${data?[index].price}'),
+                  trailing: ElevatedButton(onPressed: () {
+                    
+                  }, child: Text('Add'),),
+                  
                 ),
             separatorBuilder: (context, index) => const SizedBox(height: 8.0),
             itemCount: data?.length ?? 0),
@@ -26,10 +30,10 @@ class MainMasterStatusScreen extends GetView<MasterStatusController> {
           child: Text('$error'),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      /* floatingActionButton: FloatingActionButton(
         onPressed: () => Get.toNamed('/master_status/add'),
         child: const Icon(Icons.add),
-      ),
+      ), */
     );
   }
 }

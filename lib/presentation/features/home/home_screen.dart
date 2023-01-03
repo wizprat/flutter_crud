@@ -18,18 +18,18 @@ class HomeScreen extends StatelessWidget {
               child: Text('Lawson App'),
             ),
             ListTile(
-              title: const Text('Master Status'),
-              onTap: () => Get.toNamed('/master_status/main'),
+              title: const Text('Grab Sliver App Bar'),
+              onTap: () => Get.toNamed('/paralax_sliver/main'),
             ),
             ListTile(
-              title: const Text('Merchant'),
-              onTap: () => Get.toNamed('/merchant/main'),
+              title: const Text('Select Product'),
+              onTap: () => Get.toNamed('/master_status/main'),
             ),
             ListTile(
               title: const Text('Order Items'),
               onTap: () => Get.toNamed('/order_items/main'),
             ),
-            ListTile(
+            /* ListTile(
               title: const Text('City'),
               onTap: () => Get.toNamed('/city/main'),
             ),
@@ -40,7 +40,7 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               title: const Text('User'),
               onTap: () => Get.toNamed('/user/main'),
-            ),
+            ), */
           ],
         ),
       ),

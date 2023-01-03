@@ -1,3 +1,4 @@
+import 'package:flutter_crud/presentation/features/grab_sliver_app_bar/grab_sliver_app_bar.dart';
 import 'package:flutter_crud/presentation/features/home/home_screen.dart';
 import 'package:get/get.dart';
 
@@ -47,6 +48,9 @@ class Routes {
   static String mainOrderStatus = '/order_status/main';
   static String addOrderStatus = '/order_status/add';
   static String editOrderStatus = '/order_status/edit';
+
+  //Sliver
+  static String paralaxSliver = '/paralax_sliver/main';
 }
 
 final getPages = [
@@ -193,6 +197,12 @@ final getPages = [
   GetPage(
     name: Routes.editOrderStatus,
     page: () => const EditOrderStatusScreen(),
+    binding: OrderStatusBinding(),
+    transition: Transition.cupertino,
+  ),
+  GetPage(
+    name: Routes.paralaxSliver,
+    page: () => const ParalaxSliver(),
     binding: OrderStatusBinding(),
     transition: Transition.cupertino,
   ),

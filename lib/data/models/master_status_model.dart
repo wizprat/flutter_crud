@@ -4,19 +4,22 @@ class MasterStatusModel extends MasterStatus {
   MasterStatusModel({
     int? id,
     String? name,
-    String? description,
-  }) : super(id: id, name: name, description: description);
+    int? price,
+    int? qty,
+  }) : super(id: id, name: name, price: price, qty: qty );
 
   factory MasterStatusModel.fromJson(Map<String, dynamic> json) =>
       MasterStatusModel(
         id: json["id"],
         name: json["name"],
-        description: json["description"],
+        price: json["price"],
+        qty: json["qty"],
       );
 
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
-        "description": description,
+        "price": price,
+        "qty":qty,
       };
 }
