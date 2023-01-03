@@ -13,13 +13,38 @@ class MainMasterStatusScreen extends GetView<MasterStatusController> {
       ),
       body: controller.obx(
         (data) => ListView.separated(
-            itemBuilder: (context, index) => ListTile(
-                  title: Text('${data?[index].name}'),
-                  subtitle: Text('${data?[index].price}'),
-                  trailing: ElevatedButton(onPressed: () {
-                    
-                  }, child: Text('Add'),),
-                  
+            itemBuilder: (context, index) => GetBuilder<MasterStatusController>(
+                  builder: (c) => ListTile(
+                    title: Text('${data?[index].name}'),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('${data?[index].price}'),
+                        data?[index].qty != 0
+                            ? Row(
+                                children: [
+                                  IconButton(
+                                      onPressed: () {
+                                        c.onRemoveQty(data![index]);
+                                      },
+                                      icon: Icon(Icons.remove)),
+                                  Text('${data?[index].qty}'),
+                                  IconButton(
+                                      onPressed: () {
+                                        c.onAddQty(data![index]);
+                                      },
+                                      icon: Icon(Icons.add))
+                                ],
+                              )
+                            : ElevatedButton(
+                                onPressed: () {
+                                  c.onAddQty(data![index]);
+                                },
+                                child: Text('Add'),
+                              ),
+                      ],
+                    ),
+                  ),
                 ),
             separatorBuilder: (context, index) => const SizedBox(height: 8.0),
             itemCount: data?.length ?? 0),
@@ -34,6 +59,12 @@ class MainMasterStatusScreen extends GetView<MasterStatusController> {
         onPressed: () => Get.toNamed('/master_status/add'),
         child: const Icon(Icons.add),
       ), */
+      bottomNavigationBar: Container(
+        width: double.infinity,
+        height: 30,
+        child: Center(
+            child: Obx(() => Text('TOTAL : ${controller.totalPrice.value}'))),
+      ),
     );
   }
 }
